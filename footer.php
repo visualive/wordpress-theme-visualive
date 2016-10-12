@@ -1,16 +1,11 @@
 <?php
 /**
- * WordPress main template file.
+ * WordPress template for displaying the footer.
  *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link       http://codex.wordpress.org/Template_Hierarchy
  * @package    WordPress
  * @subpackage VisuAlive
- * @author     Copyright (C) 2016  KUCKLU and VisuAlive.
+ * @author     KUCKLU <kuck1u@visualive.jp>
+ *             Copyright (C) 2015  KUCKLU and VisuAlive.
  *             This program is free software: you can redistribute it and/or modify
  *             it under the terms of the GNU General Public License as published by
  *             the Free Software Foundation, either version 3 of the License, or
@@ -24,8 +19,8 @@
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
-}
+} ?>
 
-get_header(); ?>
-
-<?php get_footer(); ?>
+<?php wp_footer(); ?>
+</body>
+</html>

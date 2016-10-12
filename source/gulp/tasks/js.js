@@ -6,21 +6,16 @@ var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 var watching = false;
 
-gulp.task('js', $.watchify(function (watchify) {
-    var buffer = require('vinyl-buffer');
-    var browserify = require('browserify');
+gulp.task('js', $.watchify(function () {
 
     return gulp.src(conf.js.src)
         .pipe($.ignore.exclude('components/**/*.js'))
-        .pipe(watchify({
-            watch: watching
-        }))
-        .pipe($.streamify($.babel()))
-        // .pipe($.streamify($.concat('scripts.js')))
-        .pipe($.streamify($.crLfReplace({changeCode: 'LF'})))
+        .pipe($.babel())
+        .pipe($.if('!**/*customizer.js', $.concat('script.js')))
+        .pipe($.crLfReplace({changeCode: 'LF'}))
         .pipe(gulp.dest(conf.js.dest))
         .pipe($.rename({suffix: '.min'}))
-        .pipe($.streamify($.uglify({preserveComments: 'some'})))
+        .pipe($.uglify({preserveComments: 'some'}))
         .pipe(gulp.dest(conf.js.dest))
         .pipe($.if(watching, browserSync.reload({
             stream: true

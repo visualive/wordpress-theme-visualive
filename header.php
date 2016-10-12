@@ -1,16 +1,11 @@
 <?php
 /**
- * WordPress main template file.
+ * WordPress template for displaying the header.
  *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link       http://codex.wordpress.org/Template_Hierarchy
  * @package    WordPress
  * @subpackage VisuAlive
- * @author     Copyright (C) 2016  KUCKLU and VisuAlive.
+ * @author     KUCKLU <kuck1u@visualive.jp>
+ *             Copyright (C) 2015  KUCKLU and VisuAlive.
  *             This program is free software: you can redistribute it and/or modify
  *             it under the terms of the GNU General Public License as published by
  *             the Free Software Foundation, either version 3 of the License, or
@@ -25,7 +20,15 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?> class="no-js">
+<head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-dns-prefetch-control" content="on">
+	<?php wp_head(); ?>
+</head>
 
-get_header(); ?>
-
-<?php get_footer(); ?>
+<body <?php body_class(); ?>>

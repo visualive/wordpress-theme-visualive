@@ -43,6 +43,17 @@ module.exports = {
     js             : {
         map   : src + '/js/**/*.map',
         src   : [
+            src + '/js/components/jquery.min.js',
+            nodeModules + '/fastclick/lib/fastclick.js',
+            nodeModules + '/what-input/what-input.js',
+            nodeModules + '/foundation-sites/js/foundation.core.js',
+            nodeModules + '/foundation-sites/js/foundation.util.mediaQuery.js',
+            nodeModules + '/foundation-sites/js/foundation.util.keyboard.js',
+            nodeModules + '/foundation-sites/js/foundation.util.box.js',
+            nodeModules + '/foundation-sites/js/foundation.util.motion.js',
+            nodeModules + '/foundation-sites/js/foundation.util.nest.js',
+            nodeModules + '/foundation-sites/js/foundation.dropdownMenu.js',
+            nodeModules + '/foundation-sites/js/foundation.accordionMenu.js',
             src + '/js/**/*.js'
         ],
         dest  : dest + '/js'
