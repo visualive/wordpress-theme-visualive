@@ -14,7 +14,7 @@ function test_wp_enqueue_scripts() {
 	wp_deregister_script( 'jquery-migrate' );
 	wp_dequeue_script( 'jquery-migrate' );
 
-	wp_register_script( 'jquery-core', get_stylesheet_directory_uri() . '/assets/js/script.min.js', array(), false );
-	wp_register_script( 'jquery', false, array( 'jquery-core' ), false );
+	wp_register_script( 'jquery-core', get_stylesheet_directory_uri() . '/assets/js/script.min.js', array(), false, true );
+	wp_register_script( 'jquery', false, array( 'jquery-core' ), false, true );
 }
 add_action( 'wp_enqueue_scripts', 'test_wp_enqueue_scripts' );
