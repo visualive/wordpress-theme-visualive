@@ -14,4 +14,7 @@ gulp.task("watch", function () {
     $.watch(conf.js.src, function () {
         return gulp.start(["watch:js"]);
     });
+    $.watch(conf.html.src, function () {
+        return gulp.start(["watch:html"]);
+    });
 });
