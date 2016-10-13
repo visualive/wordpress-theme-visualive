@@ -6,9 +6,9 @@ var gulpTasks = root + '/tasks';
 var theme = path.resolve(root + '/../../');
 var themeName = theme.replace(/((.*?)\/)*/, '');
 var wpPath = root.replace('/wp-content/themes/' + themeName + '/source/gulp', '');
-var wpURI = 'http://127.0.0.1:8080';
+var wpURI = 'https://develop.visualive.jp';
 var wpThemeUri = wpURI + '/wp-content/themes/' + themeName;
-var wpSSL = false;
+var wpSSL = true;
 var src = theme + '/source';
 var dest = theme + '/assets';
 var bowerComponents = theme + '/bower_components';
@@ -65,7 +65,7 @@ module.exports = {
         dest  : dest + '/js'
     },
     del            : [
-        dest + '/font/**/*',
+        dest + '/img/**/*',
         dest + '/img/**/*',
         dest + '/css/**/*',
         dest + '/js/**/*'
