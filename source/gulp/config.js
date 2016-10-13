@@ -30,6 +30,12 @@ module.exports = {
         theme + '/**/*.html',
         theme + '/**/*.php'
     ],
+    font           : {
+        src : [
+            src + '/font/**/*'
+        ],
+        dest: dest + '/font'
+    },
     img            : {
         src : src + '/img/**/*.+(jpg|jpeg|png|gif|svg)',
         dest: dest + '/img'
@@ -59,6 +65,7 @@ module.exports = {
         dest  : dest + '/js'
     },
     del            : [
+        dest + '/font/**/*',
         dest + '/img/**/*',
         dest + '/css/**/*',
         dest + '/js/**/*'
