@@ -6,7 +6,7 @@ var $ = require("gulp-load-plugins")();
 
 gulp.task("watch", function () {
     $.watch(conf.img.src, function () {
-        return gulp.start(["img"]);
+        return gulp.start(["watch:img"]);
     });
     $.watch(conf.scss.src, function () {
         return gulp.start(["watch:scss"]);
@@ -14,7 +14,7 @@ gulp.task("watch", function () {
     $.watch(conf.js.src, function () {
         return gulp.start(["watch:js"]);
     });
-    $.watch(conf.html.src, function () {
-        return gulp.start(["watch:html"]);
+    $.watch(conf.html, function () {
+        return gulp.start(["browserSync:reload"]);
     });
 });

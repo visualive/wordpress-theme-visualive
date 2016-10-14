@@ -3,8 +3,6 @@
 var conf = require('../config.js');
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
-var browserSync = require('browser-sync');
-var watching = false;
 
 gulp.task('scss', function () {
     return gulp.src(conf.scss.src)
@@ -22,14 +20,9 @@ gulp.task('scss', function () {
         .pipe(gulp.dest(conf.scss.dest))
         .pipe($.if('*.css', $.rename({suffix: '.min'})))
         .pipe($.if('*.css', $.csso()))
-        .pipe(gulp.dest(conf.scss.dest))
-        .pipe($.if(watching, browserSync.reload({
-            stream: true
-        })));
+        .pipe(gulp.dest(conf.scss.dest));
 });
 
-gulp.task('watchMode:scss', function () {
-    watching = true
+gulp.task('watch:scss', ['scss'], function() {
+    return gulp.start(['browserSync:reload']);
 });
-
-gulp.task('watch:scss', ['watchMode:scss', 'scss']);

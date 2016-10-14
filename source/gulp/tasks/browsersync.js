@@ -3,16 +3,21 @@
 var conf = require('../config.js');
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
-var browserSync = require('browser-sync');
+var browserSync = require('browser-sync').create();
 
 gulp.task('browserSync', function () {
-    return browserSync.init(null, {
+    browserSync.init({
         notify: false,
-        open  : 'external',
+        open  : false,
         proxy : conf.wpURI,
         https : conf.wpSSL
-        //server: {
-        //    baseDir: conf.wpPath
-        //}
     });
+});
+
+gulp.task('browserSync:reload', function () {
+    browserSync.reload();
+});
+
+gulp.task('browserSync:stream', function () {
+    browserSync.stream();
 });
