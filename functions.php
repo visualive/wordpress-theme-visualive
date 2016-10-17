@@ -28,6 +28,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once dirname( __FILE__ ) . '/incs/class-theme-init.php';
+require_once dirname( __FILE__ ) . '/incs/class-jetpack-init.php';
 
-$visualive_theme_init = apply_filters( 'visualive_theme_init', visualive_theme_init::get_my_class() );
+$visualive_theme_init   = apply_filters( 'visualive_theme_init', visualive_theme_init::get_my_class() );
+$visualive_jetpack_init = apply_filters( 'visualive_jetpack_init', visualive_jetpack_init::get_my_class() );
+
 $visualive_theme_init::init();
+$visualive_jetpack_init::init();
+
+/**
+ * Jetpack social menu.
+ */
+function visualive_social_menu() {
+	if ( function_exists( 'jetpack_social_menu' ) ) {
+		jetpack_social_menu();
+	}
+}
