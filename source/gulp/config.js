@@ -6,9 +6,9 @@ var gulpTasks = root + '/tasks';
 var theme = path.resolve(root + '/../../');
 var themeName = theme.replace(/((.*?)\/)*/, '');
 var wpPath = root.replace('/wp-content/themes/' + themeName + '/source/gulp', '');
-var wpURI = 'https://develop.visualive.jp';
+var wpURI = 'http://develop.visualive.jp';
 var wpThemeUri = wpURI + '/wp-content/themes/' + themeName;
-var wpSSL = true;
+var wpSSL = false;
 var src = theme + '/source';
 var dest = theme + '/assets';
 var bowerComponents = theme + '/bower_components';
@@ -28,7 +28,9 @@ module.exports = {
     nodeModules    : nodeModules,
     html           : [
         theme + '/**/*.html',
-        theme + '/**/*.php'
+        theme + '/**/*.php',
+        '!' + theme + '/node_modules/**/*',
+        '!' + theme + '/.git/**/*'
     ],
     font           : {
         src : [
@@ -60,6 +62,7 @@ module.exports = {
             nodeModules + '/foundation-sites/js/foundation.util.nest.js',
             nodeModules + '/foundation-sites/js/foundation.dropdownMenu.js',
             nodeModules + '/foundation-sites/js/foundation.accordionMenu.js',
+            wpPath + '/wp-content/plugins/va-social-buzz/assets/js/script.min.js',
             src + '/js/**/*.js'
         ],
         dest  : dest + '/js'

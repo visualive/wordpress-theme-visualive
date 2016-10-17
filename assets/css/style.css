@@ -1635,26 +1635,113 @@ kbd {
 .va-social-buzz {
     font-family: Verdana, Roboto, 'Droid Sans', '游ゴシック', YuGothic, 'ヒラギノ丸ゴ ProN W4', 'Hiragino Maru Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, fantasy, sans-serif;
     box-sizing: border-box;
-    margin-bottom: 1.5em;
+    margin-bottom: 1.5em; /**
+     * Clearfix.
+     */ /**
+     * Font size.
+     */ /**
+     * Icon.
+     */ /**
+     * Button design.
+     */ /**
+     * Box layout.
+     */ /**
+     * Like! box.
+     */ /**
+     * Share box.
+     */ /**
+     * Notification box.
+     */ /**
+     * Follow box.
+     */
 }
 
-.va-social-buzz *,
+.va-social-buzz * {
+    box-sizing: inherit;
+}
+
 .va-social-buzz *:before,
 .va-social-buzz *:after {
     box-sizing: inherit;
 }
 
-.va-social-buzz .vasb_fb .vasb_fb_like .vasb_fb_like_text,
-.va-social-buzz .vasb_share .vasb_share_button,
+.va-social-buzz .vasb_share:before,
+.va-social-buzz .vasb_share:after {
+    display: table;
+    content: ' ';
+}
+
+.va-social-buzz .vasb_notification:before,
+.va-social-buzz .vasb_notification:after {
+    display: table;
+    content: ' ';
+}
+
+.va-social-buzz .vasb_share:after,
+.va-social-buzz .vasb_notification:after {
+    clear: both;
+}
+
+.va-social-buzz .vasb_fb_like_text,
+.va-social-buzz .vasb_share_button,
+.va-social-buzz .vasb_notification_button,
 .va-social-buzz .vasb_follow {
     font-size: 16px;
 }
 
-.va-social-buzz .vasb_fb {
+.va-social-buzz .vasb_icon {
+    font-family: 'vasocialbuzz';
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-transform: none;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.va-social-buzz .vasb_icon:before {
+    margin-right: 8px;
+}
+
+.va-social-buzz .vasb_share_button,
+.va-social-buzz .vasb_notification_button {
+    float: left;
+    padding-right: 7px;
+    padding-left: 7px;
+}
+
+.va-social-buzz .vasb_share_button a,
+.va-social-buzz .vasb_notification_button a {
+    display: block;
+    padding: .75em 0;
+    text-decoration: none;
+    color: #fff;
+    border-bottom: none;
+    border-radius: 5px;
+}
+
+.va-social-buzz .vasb_share_button a:focus,
+.va-social-buzz .vasb_notification_button a:focus {
+    outline: none;
+}
+
+.va-social-buzz .vasb_fb,
+.va-social-buzz .vasb_share,
+.va-social-buzz .vasb_notification {
     position: relative;
-    display: table;
     width: 100%;
     margin-bottom: .75em;
+    text-align: center;
+}
+
+.va-social-buzz .vasb_fb {
+    display: table;
+}
+
+.va-social-buzz .vasb_fb,
+.va-social-buzz .vasb_fb .vasb_fb_thumbnail {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -1667,9 +1754,6 @@ kbd {
     left: 0;
     width: 100%;
     height: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
 }
 
 .va-social-buzz .vasb_fb .vasb_fb_like {
@@ -1699,51 +1783,11 @@ kbd {
 }
 
 .va-social-buzz .vasb_share {
-    width: 100%;
-    margin-bottom: .75em;
-    text-align: center;
-}
-
-.va-social-buzz .vasb_share:before,
-.va-social-buzz .vasb_share:after {
-    display: table;
-    content: ' ';
-}
-
-.va-social-buzz .vasb_share:after {
-    clear: both;
-}
-
-.va-social-buzz .vasb_share .vasb_icon {
-    font-family: 'vasocialbuzz';
-    font-weight: normal;
-    font-style: normal;
-    font-variant: normal;
-    line-height: 1;
-    text-transform: none;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    /* Share */ /* Tweet */
 }
 
 .va-social-buzz .vasb_share .vasb_share_button {
-    float: left;
     width: 50%;
-    padding-right: 7px;
-    padding-left: 7px;
-}
-
-.va-social-buzz .vasb_share .vasb_share_button a {
-    display: block;
-    padding: .75em 0;
-    text-decoration: none;
-    color: #fff;
-    border-bottom: none;
-    border-radius: 5px;
-}
-
-.va-social-buzz .vasb_share .vasb_share_button a:focus {
-    outline: none;
 }
 
 .va-social-buzz .vasb_share .vasb_share_button-fb {
@@ -1752,7 +1796,6 @@ kbd {
 }
 
 .va-social-buzz .vasb_share .vasb_share_button-fb .vasb_icon:before {
-    margin-right: 8px;
     content: '\e800';
 }
 
@@ -1770,7 +1813,6 @@ kbd {
 }
 
 .va-social-buzz .vasb_share .vasb_share_button-twttr .vasb_icon:before {
-    margin-right: 8px;
     content: '\e801';
 }
 
@@ -1782,37 +1824,20 @@ kbd {
     background-color: #0c7abf;
 }
 
-.va-social-buzz .vasb_share .vasb_share_button-push7:before,
-.va-social-buzz .vasb_share .vasb_share_button-push7:after {
-    display: table;
-    content: ' ';
-}
-
-.va-social-buzz .vasb_share .vasb_share_button-push7:after {
-    clear: both;
-}
-
-.va-social-buzz .vasb_share .vasb_share_button-push7 {
-    display: block;
-    float: none;
-    clear: both;
+.va-social-buzz .vasb_notification .vasb_notification_button-push7 {
     width: 100%;
-    padding-top: .75em;
-    padding-right: 0;
-    padding-left: 0;
+    padding: 0;
 }
 
-.va-social-buzz .vasb_share .vasb_share_button-push7 .vasb_icon:before {
-    margin-right: 8px;
+.va-social-buzz .vasb_notification .vasb_notification_button-push7 .vasb_icon:before {
     content: '\e804';
 }
 
-.va-social-buzz .vasb_share .vasb_share_button-push7 a {
-    text-align: center;
+.va-social-buzz .vasb_notification .vasb_notification_button-push7 a {
     background-color: #e5a717;
 }
 
-.va-social-buzz .vasb_share .vasb_share_button-push7 a:hover {
+.va-social-buzz .vasb_notification .vasb_notification_button-push7 a:hover {
     background-color: #bf9214;
 }
 
@@ -1828,6 +1853,64 @@ kbd {
     display: inline-block !important;
     margin-bottom: 0 !important;
     vertical-align: middle !important;
+}
+
+#toc_container {
+    width: 100% !important;
+    border: solid 1px #aaa;
+    background: #fff;
+}
+
+#toc_container a,
+#toc_container a:hover {
+    text-decoration: none;
+    border: none;
+    box-shadow: none;
+}
+
+#toc_container ul {
+    list-style: none;
+}
+
+#toc_container .toc_title {
+    font-size: 140%;
+    font-weight: bold;
+    margin: 1em 0;
+    text-align: center;
+}
+
+#toc_container .toc_list {
+    margin: 0 1em 1em;
+    list-style: none;
+}
+
+#toc_container .toc_list a {
+    display: block;
+}
+
+#toc_container .toc_list li ul {
+    margin: .7em 0 .7em 1em;
+}
+
+#toc_container .toc_list > li a {
+    padding: 4px;
+    border-bottom: solid 1px #aaa;
+}
+
+#toc_container .toc_list > li > a {
+    font-size: 120%;
+    font-weight: bold;
+    border-bottom: solid 2px #aaa;
+}
+
+#toc_container .toc_list > li:first-child > a {
+    padding-top: 0;
+}
+
+#toc_container .toc_number:after {
+    margin-right: 0;
+    margin-left: 4px;
+    content: '-';
 }
 
 @media screen and (max-width: 0), screen and (min-width: 40em) {

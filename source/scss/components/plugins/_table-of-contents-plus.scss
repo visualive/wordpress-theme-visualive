@@ -1,0 +1,51 @@
+#toc_container {
+    background: #ffffff;
+    border: solid 1px #aaa;
+    width: 100% !important;
+
+    a,
+    a:hover {
+        border: none;
+        box-shadow: none;
+        text-decoration: none;
+    }
+    ul {
+        list-style: none;
+    }
+
+    .toc_title {
+        font-size: 140%;
+        font-weight: bold;
+        margin: 1em 0;
+        text-align: center;
+    }
+
+    .toc_list {
+        list-style: none;
+        margin: 0 1em 1em;
+        & a {
+            display: block;
+        }
+        & li ul {
+            margin: .7em 0 .7em 1em;
+        }
+        & > li a {
+            border-bottom: solid 1px #aaa;
+            padding: 4px;
+        }
+        & > li > a {
+            border-bottom: solid 2px #aaa;
+            font-size: 120%;
+            font-weight: bold;
+        }
+        & > li:first-child > a {
+            padding-top: 0;
+        }
+    }
+
+    .toc_number:after {
+        content: '-';
+        margin-left: 4px;
+        margin-right: 0;
+    }
+}

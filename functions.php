@@ -1,35 +1,33 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: kuck1u
- * Date: 16/10/13
- * Time: 5:10
+ * VisuAlive functions and definitions.
+ * Set up the theme and provides some helper functions, which are used in the
+ * theme as custom template tags. Others are attached to action and filter
+ * hooks in WordPress to change core functionality.
+ * When using a child theme you can override certain functions (those wrapped
+ * in a function_exists() call) by defining them first in your child theme's
+ * functions.php file. The child theme's functions.php file is included before
+ * the parent theme's file, so the child theme functions would be used.
+ *
+ * @link       https://codex.wordpress.org/Theme_Development
+ * @link       https://codex.wordpress.org/Child_Themes
+ *             Functions that are not pluggable (not wrapped in function_exists()) are
+ *             instead attached to a filter or action hook.
+ *             For more information on hooks, actions, and filters,
+ *             {@link https://codex.wordpress.org/Plugin_API}
+ * @package    WordPress
+ * @subpackage VisuAlive
+ * @author     KUCKLU
+ * @copyright  Copyright (c) 2016 KUCKLU & VisuAlive
+ * @license    GPL-2.0+
+ * @since      VisuAlive 1.0.0
  */
 
-function test_wp_enqueue_scripts() {
-	wp_deregister_script( 'jquery' );
-	wp_dequeue_script( 'jquery' );
-	wp_deregister_script( 'jquery-core' );
-	wp_dequeue_script( 'jquery-core' );
-	wp_deregister_script( 'jquery-migrate' );
-	wp_dequeue_script( 'jquery-migrate' );
-
-	wp_register_style( 'visualive', get_stylesheet_directory_uri() . '/assets/css/style.min.css' );
-	wp_enqueue_style( 'visualive' );
-
-	wp_register_script( 'jquery-core', get_stylesheet_directory_uri() . '/assets/js/script.min.js', array(), false, true );
-	wp_register_script( 'jquery', false, array( 'jquery-core' ), false, true );
-	wp_enqueue_script( 'jquery' );
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
-add_action( 'wp_enqueue_scripts', 'test_wp_enqueue_scripts' );
 
+require_once dirname( __FILE__ ) . '/incs/class-theme-init.php';
 
-
-add_filter( 'va_social_buzz_include_style', '__return_false' );
-add_filter( 'va_social_buzz_include_script', '__return_false' );
-
-add_action( 'va_social_buzz_enqueue_scripts', function ( $css, $l10n, $object_name ) {
-	wp_add_inline_style( 'twentysixteen-style', $css );
-	wp_localize_script( 'twentysixteen-script', $object_name, $l10n );
-}, 10, 3 );
-
+$visualive_theme_init = apply_filters( 'visualive_theme_init', visualive_theme_init::get_my_class() );
+$visualive_theme_init::init();
