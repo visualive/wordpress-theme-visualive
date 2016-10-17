@@ -112,11 +112,11 @@ class VisuAlive_Theme_Init {
 		/**
 		 * Enable support for custom logo.
 		 */
-		add_theme_support( 'custom-logo', array(
+		add_theme_support( 'custom-logo', apply_filters( 'visualive_custom_logo', array(
 			'height'      => 240,
 			'width'       => 240,
 			'flex-height' => true,
-		) );
+		) ) );
 
 		/**
 		 * Enable support for Post Thumbnails on posts and pages.
@@ -124,7 +124,7 @@ class VisuAlive_Theme_Init {
 		 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 		 */
 		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size( 1200, 9999 );
+		set_post_thumbnail_size( apply_filters( 'visualive_set_post_thumbnail_size', '1200, 9999' ) );
 
 		/**
 		 * Indicate widget sidebars can use selective refresh in the Customizer.
