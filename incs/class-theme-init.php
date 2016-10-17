@@ -44,6 +44,8 @@ class VisuAlive_Theme_Init {
 	 * Get my class.
 	 *
 	 * @return string
+	 * @access public
+	 * @since  VisuAlive 1.0.0
 	 */
 	public static function get_my_class() {
 		return get_called_class();
@@ -141,7 +143,9 @@ class VisuAlive_Theme_Init {
 	/**
 	 * Registers a widget area.
 	 *
-	 * @link https://developer.wordpress.org/reference/functions/register_sidebar/
+	 * @link   https://developer.wordpress.org/reference/functions/register_sidebar/
+	 * @access public
+	 * @since  VisuAlive 1.0.0
 	 */
 	public function widgets_init() {
 		register_sidebar( array(
