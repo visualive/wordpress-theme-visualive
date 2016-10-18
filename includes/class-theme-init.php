@@ -81,11 +81,11 @@ class VisuAlive_Theme_Init {
 	public function after_setup_theme() {
 		/**
 		 * Make theme available for translation.
-		 * Translations can be filed in the /langs/ directory.
+		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on Twenty Sixteen, use a find and replace
 		 * to change 'visualive' to the name of your theme in all the template files
 		 */
-		load_theme_textdomain( 'visualive', get_template_directory() . '/langs' );
+		load_theme_textdomain( 'visualive', get_template_directory() . '/languages' );
 
 		/**
 		 * Add default posts and comments RSS feed links to head.
@@ -170,8 +170,18 @@ class VisuAlive_Theme_Init {
 		) );
 
 		register_sidebar( array(
-			'name'          => __( 'Content bottom on posts', 'visualive' ),
+			'name'          => __( 'Landing page', 'visualive' ),
 			'id'            => 'sidebar-3',
+			'description'   => __( 'Add widgets here to appear in your landing page.', 'visualive' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		) );
+
+		register_sidebar( array(
+			'name'          => __( 'Content bottom on posts', 'visualive' ),
+			'id'            => 'sidebar-4',
 			'description'   => __( 'Appears at the bottom of the content on posts.', 'visualive' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
@@ -181,8 +191,18 @@ class VisuAlive_Theme_Init {
 
 		register_sidebar( array(
 			'name'          => __( 'Content Bottom on pages', 'visualive' ),
-			'id'            => 'sidebar-4',
+			'id'            => 'sidebar-5',
 			'description'   => __( 'Appears at the bottom of the content on pages.', 'visualive' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		) );
+
+		register_sidebar( array(
+			'name'          => __( 'Footer', 'visualive' ),
+			'id'            => 'sidebar-6',
+			'description'   => __( 'Add widgets here to appear in your footer.', 'visualive' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',

@@ -57,6 +57,7 @@ class VisuAlive_Jetpack_Init {
 		add_action( 'after_setup_theme', array( &$this, 'after_setup_theme' ) );
 		add_action( 'init', array( &$this, 'nova_restaurant_init' ) );
 		add_filter( 'register_post_type_args', array( &$this, 'register_post_type_args' ), 10, 2 );
+		add_filter( 'register_taxonomy_args', array( &$this, 'register_taxonomy_args' ), 10, 3 );
 		add_filter( 'admin_enqueue_scripts', array( &$this, 'change_nova_dashboard_icon' ) );
 		add_filter( 'dashboard_glance_items', array( &$this, 'dashboard_glance_items' ) );
 	}
@@ -123,6 +124,30 @@ class VisuAlive_Jetpack_Init {
 			$args['menu_icon']           = 'dashicons-media-document';
 			$args['public']              = false;
 			$args['show_ui']             = true;
+		}
+
+		if ( is_customize_preview() ) {
+			$args['public'] = true;
+		}
+
+		return $args;
+	}
+
+	/**
+	 * Register post type args.
+	 *
+	 * @param array  $args        Array of arguments for registering a taxonomy.
+	 * @param string $taxonomy    Taxonomy key.
+	 * @param array  $object_type Array of names of object types for the taxonomy.
+	 *
+	 * @return array
+	 * @access public
+	 * @since  VisuAlive 1.0.0
+	 */
+	public function register_taxonomy_args( $args, $taxonomy, $object_type ) {
+		if ( 'nova_menu' === $taxonomy || 'nova_menu_item_label' === $taxonomy ) {
+			$args['public']  = false;
+			$args['show_ui'] = true;
 		}
 
 		return $args;

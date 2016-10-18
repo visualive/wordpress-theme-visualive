@@ -27,17 +27,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once dirname( __FILE__ ) . '/incs/class-theme-init.php';
-require_once dirname( __FILE__ ) . '/incs/class-jetpack-init.php';
+require_once dirname( __FILE__ ) . '/includes/class-theme-init.php';
+require_once dirname( __FILE__ ) . '/includes/class-jetpack-init.php';
+require_once dirname( __FILE__ ) . '/includes/class-note-init.php';
 
-$visualive_theme_init   = apply_filters( 'visualive_theme_init', visualive_theme_init::get_my_class() );
-$visualive_jetpack_init = apply_filters( 'visualive_jetpack_init', visualive_jetpack_init::get_my_class() );
+$visualive_theme_init   = apply_filters( 'visualive_theme_init', VisuAlive_Theme_Init::get_my_class() );
+$visualive_jetpack_init = apply_filters( 'visualive_jetpack_init', VisuAlive_Jetpack_Init::get_my_class() );
+$visualive_note_init    = apply_filters( 'visualive_note_init', VisuAlive_Note_Init::get_my_class() );
 
 $visualive_theme_init::init();
 $visualive_jetpack_init::init();
+$visualive_note_init::init();
 
 /**
  * Jetpack social menu.
+ *
+ * @since VisuAlive 1.0.0
  */
 function visualive_social_menu() {
 	if ( function_exists( 'jetpack_social_menu' ) ) {
